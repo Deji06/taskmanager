@@ -1,0 +1,43 @@
+{
+  "name": "taskmanager",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@craco/craco": "^7.1.0",
+    "@fluentui/react": "^8.122.15",
+    "cra-template-typescript": "1.3.0",
+    "icons": "^1.0.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.2.0",
+    "react-icons": "^5.5.0",
+    "react-scripts": "^5.0.1",
+    "uuid": "^11.1.0"
+  },
+  "scripts": {
+    "start": "craco start",
+    "build": "craco build",
+    "test": "craco test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.17"
+  }
+}
