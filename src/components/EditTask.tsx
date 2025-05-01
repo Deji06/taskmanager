@@ -6,7 +6,7 @@ type EditTaskProps = {
   editing: boolean;
   titleEditing: string;
   SetIsEditing: React.Dispatch<React.SetStateAction<boolean>>;
-  onSaveEdit: (id:string, newTitle:string) =>void
+  onSaveEdit: (id: string, newTitle: string) => void;
   // onToggle: (id:string) => void
   // onDelete: (id:string) => void
 };
@@ -15,34 +15,27 @@ const EditTask = ({
   editing,
   SetIsEditing,
   titleEditing,
-  onSaveEdit
+  onSaveEdit,
 }: EditTaskProps) => {
   const [saveNewEdit, setIsSaveNewEdit] = useState("");
   const editTaskForm = (e: React.FormEvent) => {
     e.preventDefault();
     console.log(saveNewEdit);
-
-    // setIsSaveNewEdit(titleEditing)
   };
 
   const saveTask = () => {
-    if(!saveNewEdit.trim()) return;
-    onSaveEdit(editTask.id, saveNewEdit.trim())
-    setIsSaveNewEdit(titleEditing)
-    console.log('edited task:', setIsSaveNewEdit(titleEditing));
-    SetIsEditing(false)
+    if (!saveNewEdit.trim()) return;
+    onSaveEdit(editTask.id, saveNewEdit.trim());
+    setIsSaveNewEdit(titleEditing);
+    console.log("edited task:", setIsSaveNewEdit(titleEditing));
+    SetIsEditing(false);
 
     // const updatedTodos = editTask
     // setIsSaveNewEdit(titleEditing)
-  }
+  };
 
   return (
-    <form
-      action=""
-      key={editTask.id}
-      className=""
-      onSubmit={editTaskForm}
-    >
+    <form action="" key={editTask.id} className="" onSubmit={editTaskForm}>
       <input
         type="text"
         value={saveNewEdit}
