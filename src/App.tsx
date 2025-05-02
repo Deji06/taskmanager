@@ -24,8 +24,10 @@ const App = () => {
   const [displayPriority, setDisplayPriority] = useState(false);
   const [dueDate, setDueDate] = useState("");
   const [searchTerm, setSearchTerm] = useState<string>("");
-  const[taskOrder, setTaskOrder] = useState<'all'|'incomplete'|'completed'>('all')
-  // const [filterTodos, setFilterTodos] = useState([])
+  const [taskOrder, setTaskOrder] = useState<
+    "all" | "incomplete" | "completed"
+  >("all");
+  
 
   useEffect(() => {
     const storedTodos = localStorage.getItem("todos");
@@ -86,11 +88,13 @@ const App = () => {
   };
 
   const deleteTodo = (id: string) => {
-    const updatedTodos = todos.filter((deletedTodo) => deletedTodo.id !== id);
-    // confirm('are you sure ?')
-    console.log("data:", id);
-    setTodos(updatedTodos);
-    // localStorage.setItem('todos', JSON.stringify(updatedTodos))
+    const isConfirmed = window.confirm(
+      "Are you sure you want to delete this task?"
+    );
+    if (isConfirmed) {
+      const updatedTodos = todos.filter((deletedTodo) => deletedTodo.id !== id);
+      setTodos(updatedTodos);
+    }
   };
 
   const handleSaveEdit = (id: string, newTitle: string) => {
@@ -120,11 +124,13 @@ const App = () => {
   const filteredTodos = todos
     .filter((todo) =>
       todo.title.toLowerCase().includes(searchTerm.toLowerCase())
-  ).filter((todo)=> {
-    if(taskOrder === 'all') return todo;
-    if(taskOrder === 'incomplete') return !todo.completed ;
-    if(taskOrder === 'completed') return todo.completed
-  })
+    )
+    .filter((todo) => {
+      if (taskOrder === "all") return todo;
+      if (taskOrder === "incomplete") return !todo.completed;
+      if (taskOrder === "completed") return todo.completed;
+      return true;
+    })
     .sort((a, b) => {
       const priorityOrder = { high: 1, medium: 2, low: 3 };
       return (
@@ -135,10 +141,10 @@ const App = () => {
   return (
     <>
       <div className="pb-20">
-        <div className="uppercase text-[40px] font-bold text-[#646ff0]  w-[50%] m-auto text-center pt-5">
+        <div className="uppercase md:text-[40px] text-[20px] font-bold text-[#646ff0]  w-[50%] m-auto text-center pt-5">
           task manager
         </div>
-        <div className="w-[50%] m-auto flex mt-2 justify-between">
+        <div className="md:w-[50%] m-auto px-3 sm:p-0 flex mt-2 justify-between">
           <button
             className="bg-[#646ff0] px-5 rounded-[5px] text-white cursor-pointer outline-none "
             onClick={() => setAddTask(!addTask)}
@@ -150,7 +156,9 @@ const App = () => {
             value={taskOrder}
             id=""
             className="bg-[#cccdde] rounded p-2 outline-none"
-            onChange={(e)=>setTaskOrder(e.target.value as 'all'|'incomplete'|'completed')}
+            onChange={(e) =>
+              setTaskOrder(e.target.value as "all" | "incomplete" | "completed")
+            }
           >
             <option value="all">all</option>
             <option value="incomplete">incomplete</option>
@@ -161,7 +169,7 @@ const App = () => {
           <form
             action=""
             onSubmit={handleForm}
-            className="w-[50%] h-[220px] m-auto mt-10 pl-12 py-5 rounded-[5px] bg-[#CCCDDE] flex flex-col gap-y-3  relative "
+            className="md:w-[50%] h-[220px] md:m-auto m-3 mt-5 md:mt-5 pl-12 py-5 rounded-[5px] bg-[#CCCDDE] flex flex-col gap-y-3  relative "
           >
             <label
               htmlFor=""
@@ -187,13 +195,22 @@ const App = () => {
             </div>
 
             {/* {userInput===''? <p className="text-red-800">enter task </p>: ''} */}
-            <button
+          <div className="flex items-center gap-x-3">
+          <button
               type="submit"
-              className="w-[40%] py-2 rounded-[5px] bg-[#646FF0] text-white capitalize cursor-pointer"
+              className="w-[30%] py-2 rounded-[5px] bg-[#646FF0] text-white capitalize cursor-pointer"
               onClick={addTaskBtn}
             >
               add task
             </button>
+            <button
+              type="submit"
+              className="w-[30%] py-2 rounded-[5px] bg-[#646FF0] text-white capitalize cursor-pointer"
+              onClick={()=>setAddTask(false)}
+            >
+              cancel
+            </button>
+          </div>
           </form>
         )}
         {todos.length < 1 ? (

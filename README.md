@@ -1,46 +1,67 @@
-# Getting Started with Create React App
+# Outlook-Style Todo App (Internship Technical Test)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is a fully functional **Todo Application** built with **React** and **TypeScript**, developed for the Internship Technical Test challenge.
 
-## Available Scripts
+Inspired by the Outlook email task interface, the app lets users manage tasks with features like **priority sorting**, **due dates with notifications**, and **local storage persistence**.
 
-In the project directory, you can run:
+---
 
-### `npm start`
+## 🚀 Features Implemented
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- ✅ **Add, Edit, and Delete** tasks
+- ✅ **Mark tasks as Completed / Incomplete**
+- ✅ **Search and Filter** tasks by name and status
+- ✅ **Priority Sorting** (High > Medium > Low)
+- ✅ **Due Dates** for each task
+- ✅ **Browser Notifications** for upcoming tasks
+- ✅ **Persistent Storage** using `localStorage`
+- ✅ **Reusable Components** with TypeScript props
+- ✅ Fully typed with **TypeScript** interfaces
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+---
 
-### `npm test`
+## 📂 Folder Structure
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+-- src
+|
+components->AddTodo.tsx-EditTask.tsx-Filters.tsx-TodoItems.tsx-TodoList.tsx-UserAuth.tsx
+|
+hooks -> useNotifications.ts
+|
+types -> todo.ts
+|
+App.tsx
+---
 
-### `npm run build`
+## 📦 Tech Stack
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- **React + TypeScript**
+- **Fluent UI Icons** (`@fluentui/react-icons`)
+- **UUID** (`uuid`) — for unique task IDs
+- **LocalStorage** — for persisting tasks across sessions
+- **Browser Notifications API** — for reminders
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+---
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## 🔥 How to Run the Project
 
-### `npm run eject`
+Follow these steps to clone and run locally:
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+1. **Clone this repository**
+   ```bash
+   git clone https://github.com/yourusername/taskmanager.git
+   cd taskmanager
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+#install dependencies
+--  npm install
+#start the development server
+--  npm start
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+Author
+Deji Olawuni
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+Your GitHub Profile
 
-## Learn More
+🌟 Acknowledgements
+This app was built as part of the Internship Technical Test and is inspired by the task interface in Outlook.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).

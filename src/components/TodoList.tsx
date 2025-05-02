@@ -22,7 +22,7 @@ const TodoList = ({
   setSearchTerm,
 }: todoListProps) => {
   return (
-    <div className="border-2 rounded-[5px] bg-[#f8f8ff] w-[40%] m-auto mt-10 flex flex-col gap-y-2  pl-5 ">
+    <div className="border-2 rounded-[5px] bg-[#f8f8ff] sm:w-[40%] md:m-auto mx-3 md:my-3 mt-10 flex flex-col gap-y-2 p-3 pl-5 ">
       <Filters searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
       {todos.map((todo) => (
         <div className="w-[100%]" key={todo.id}>
