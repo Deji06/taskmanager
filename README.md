@@ -49,7 +49,7 @@ Follow these steps to clone and run locally:
 
 1. **Clone this repository**
    ```bash
-   git clone https://github.com/yourusername/taskmanager.git
+   git clone https://github.com/Deji06/taskmanager.git
    cd taskmanager
 
 #install dependencies
@@ -59,8 +59,6 @@ Follow these steps to clone and run locally:
 
 Author
 Deji Olawuni
-
-Your GitHub Profile
 
 🌟 Acknowledgements
 This app was built as part of the Internship Technical Test and is inspired by the task interface in Outlook.
